@@ -68,3 +68,9 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
+import cpp
+
+from IfStmt ifstmt, BlockStmt block
+where ifstmt.getThen() = block and
+  block.getNumStmt() = 0
+select ifstmt, "This 'if' statement is redundant."
