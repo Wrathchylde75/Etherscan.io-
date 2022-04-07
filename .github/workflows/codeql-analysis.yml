@@ -74,3 +74,14 @@ from IfStmt ifstmt, BlockStmt block
 where ifstmt.getThen() = block and
   block.getNumStmt() = 0
 select ifstmt, "This 'if' statement is redundant."
+https://github.com/actions/upload-artifact/pull/314#issue-1185229576steps:
+- uses: actions/checkout@v2
+
+- run: mkdir -p path/to/artifact
+
+- run: echo hello > path/to/artifact/world.txt
+
+- uses: actions/upload-artifact@v3
+  with:
+    name: my-artifact
+    path: path/to/artifact/world.txtaction.yml
